@@ -82,7 +82,7 @@ int main()
   sleep(1);
   printf("\n........Decoding In Progress........\n");
   sleep(1);
-  printf("Your decoded message is: \n%s\n:, revert); //This prints the entire array
+  printf("Your decoded message is: \n%s\n:", revert); //This prints the entire array
   
   print("\n");
   return 0;
