@@ -7,13 +7,13 @@ int main()
 {
   printf("----------Encode and Decoe----------\n");
   
-  char holder[64]
+  char holder[64];
 //Storage for User's message
-  char altered[64]
+  char altered[64];
 //Storage for Encoded message
-  char revert[64]
+  char revert[64];
 //Storage for Decoded message
-  int prime[64] = {1,2,3,5,7,11,13,17,17,13,11,7,5,3,2,1,1,2,3,5,7,11,13,17,17,13,11,7,5,3,2,1,1,2,3,5,7,11,13,17,17,13,11,7,5,3,2,1,1,2,3,5,7,11,13,17,17,13,11,7,5,3,2,1);
+  int prime[64] = {1,2,3,5,7,11,13,17,17,13,11,7,5,3,2,1,1,2,3,5,7,11,13,17,17,13,11,7,5,3,2,1,1,2,3,5,7,11,13,17,17,13,11,7,5,3,2,1,1,2,3,5,7,11,13,17,17,13,11,7,5,3,2,1};
 //Storage for prime numbers
 
   int counter = 0; //the holder counter
