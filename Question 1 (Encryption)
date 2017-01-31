@@ -1,0 +1,95 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <math.h>
+
+int main()
+{
+  printf("----------Encode and Decoe----------\n");
+  
+  char holder[64]
+//Storage for User's message
+  char altered[64]
+//Storage for Encoded message
+  char revert[64]
+//Storage for Decoded message
+  int prime[64] = {1,2,3,5,7,11,13,17,17,13,11,7,5,3,2,1,1,2,3,5,7,11,13,17,17,13,11,7,5,3,2,1,1,2,3,5,7,11,13,17,17,13,11,7,5,3,2,1,1,2,3,5,7,11,13,17,17,13,11,7,5,3,2,1);
+//Storage for prime numbers
+
+  int counter = 0; //the holder counter
+  int newCounter = 0; //the altered counter
+  
+  int primeValue = 0; //temporary prime number storage
+  int conversion = 0; //arithmetic calculation
+  
+  printf("Enter a string message that does exceed 64 characters:\n"); //User prompt
+  scanf("%[^\n]%*c", holder); //scanner
+  
+  for(int i = 0; holder[i] != '\0'; i++) //counter
+  {
+    counter++;
+  }
+  
+//Original Message
+  if(counter > sizeof(holder)) //checks boundary and throws ERROR
+  {
+    printf("*** ERROR: You have exceeded the boundary ***\n");
+    return 0;
+  }
+  printf("The total number of characters are: %i\n", counter);
+  
+  /*
+  printf("Your original message is:\n%s\n", holder);
+  */
+  //the above prints the entire array
+  
+  //Encoded Message
+  for(int i = 0; i < counter; i++) //access list of prime numbers
+  {
+    primeValue = prime[i];
+  //Store specific prime number
+    conversion = (int)holder[i] + primeValue; //addition of ASCII
+    
+    if(conversion >= 127) //This is a special case; only use characters 32 through 126
+    {
+      conversion = 31 + (primeValue - (126 - (int)holder[i]));
+    }
+    
+    altered[i] = conversion;
+ //Store in new altered array
+    newCounter++;
+ //Update altered counter
+  }
+  sleep(1);
+  printf("\n........Encoding In Progress........\n");
+  sleep(1);
+  printf("Your encoded message is:\n%s\n", altered);
+  
+//Decoded Message
+  for(int i = 0; i < counter; i++) //access list of prime numbers
+  {
+    primeValue = prime[i];
+    conversion = (int)altered[i] - primeValue;
+    
+    if(conversion < 32) //This is a special case, only use characters 32 through 126
+    {
+      conversion = ((int)altered[i] - 32) + (127 - primeValue);
+    }
+    
+    revert[i]= conversion;
+  }
+  
+  sleep(1);
+  printf("\n........Decoding In Progress........\n");
+  sleep(1);
+  printf("Your decoded message is: \n%s\n:, revert); //This prints the entire array
+  
+  print("\n");
+  return 0;
+ }
+  
+  
+  
+  
+  
+  
